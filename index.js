@@ -5,6 +5,7 @@ const minSpan = document.querySelector("span#min");
 const secSpan = document.querySelector("span#sec");
 let player = "X";
 let board = [];
+let time = new Date();
 const wincombs = [
   [0, 1, 2],
   [3, 4, 5],
@@ -17,15 +18,15 @@ const wincombs = [
   [0, 4, 8],
   [2, 6, 4],
 ];
-
+let seconds = 0;
 function updateTime() {
-  const currentDate = new Date();
-  const houers = currentDate.getHours();
-  const minuts = currentDate.getMinutes();
-  const seconds = currentDate.getSeconds();
-  hrsSpan.textContent = houers;
-  minSpan.textContent = minuts;
-  secSpan.textContent = seconds < 10 ? "0" + seconds : seconds;
+  seconds += 1;
+  let houers = Math.floor(seconds / 3600);
+  let minuts = Math.floor((seconds - houers * 3600) / 60);
+  let sec = seconds - houers * 3600 - minuts * 60;
+  hrsSpan.innerText = houers < 10 ? "0" + houers : houers;
+  minSpan.innerText = ": " + (minuts < 10 ? "0" + minuts : minuts);
+  secSpan.innerText = ": " + (sec < 10 ? "0" + sec : sec);
 }
 function toogeplayer() {
   player = player === "X" ? "O" : "X";
@@ -48,6 +49,8 @@ function wincheck(board) {
       board[comb[2]] == player
     ) {
       scoreUpdate();
+      console.log(new Date(new Date() - time));
+      time = new Date();
       return player;
     }
   }
@@ -57,6 +60,8 @@ function wincheck(board) {
       return str == "";
     })
   ) {
+    console.log(new Date(new Date() - time));
+    time = new Date();
     return "tie";
   }
 }

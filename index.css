@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .board {
   gap: 5px;
@@ -20,4 +21,9 @@ button {
   width: 100px;
   font-size: 20px;
   border-radius: 5px;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
