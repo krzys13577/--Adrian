@@ -1,0 +1,23 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #08001f, #30197d);
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.board {
+  gap: 5px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
+button {
+  height: 100px;
+  width: 100px;
+  font-size: 20px;
+  border-radius: 5px;
+}
