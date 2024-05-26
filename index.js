@@ -72,6 +72,7 @@ function wipe() {
   buttons.forEach((button) => {
     button.innerText = "";
   });
+  seconds = 0;
 }
 
 function botMove() {
@@ -114,4 +115,5 @@ buttons.forEach((button) => {
     }
   });
 });
+updateTime;
 setInterval(updateTime, 1000);
